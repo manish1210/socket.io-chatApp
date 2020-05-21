@@ -9,9 +9,6 @@ io.on('connection', socket =>{
 	socket.on('new-user', name =>{
 		users[socket.id] = name;
 		socket.broadcast.emit('user-connected', name);
-		if(Object.keys(users).length==1){
-			socket.broadcast.emit('only you');
-		};
 	});
 	
 	socket.on('send-chat-message', message =>{
